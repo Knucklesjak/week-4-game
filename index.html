@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crystal Game</title>
+
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+<body>
+
+  <div class="jumbotron">
+    <h2 class="text-center">Crystal Collector</h2>
+    <h3 class="text-center">Pick Crystals Below and Try to Match the Computer's Score</h3>
+  
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+
+       <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Choose a Crystal</h3><h5>(Each crystal is assigned a value. If you go over the computuer's score, you lose. Good luck!)</h5>
+        </div>
+        <div class="panel text-center">
+          <img id="button-1" class="btn" src="assets/images/red1.png">
+          <img id="button-2" class="btn" src="assets/images/blue1.png">
+          <img id="button-3" class="btn" src="assets/images/yellow1.png">
+          <img id="button-4" class="btn" src="assets/images/green1.png">
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Score to Match</h3>
+        </div>
+        <div class="panel-body text-center">
+          <h2 id="computer-pick">???</h2>
+        </div>
+      </div>
+
+    
+      <div class="panel panel-default">
+        <div class="col-md-4 panel-heading">
+          <h4 class="panel-title">Result</h4>
+        </div>
+        <div class="panel-body text-center">
+          <h4 id="result"></h4>
+        </div>
+        <div class="col-md-4 panel-heading">
+          <h4 class="panel-title">Wins</h4>
+        </div>
+        <div class="panel-body text-center">
+          <h4 id="result"></h4>
+        </div>
+        <div class="col-md-4 panel-heading">
+          <h4 class="panel-title">Losses</h4>
+        </div>
+        <div class="panel-body text-center">
+          <h4 id="result"></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+    // Here I am trying to create the loop to randomly assign a number for the Computer's score
+   var scoretoMatch = Math.floor(Math.random() *102) +19;
+  
+   // This is supposed to post the value from above into the screen for users to see
+   $("#computer-pick").text(scoretoMatch);
+
+
+
+    // $(document).ready(function() {
+
+    //   // Initial Variables
+    //   var yourPick = 0;
+    //   var computerPick = Math.floor(Math.random() * 4) + 1;
+    //   var lockGame = false;
+
+    //   // We log the computer's pick to console to make it easier to troubleshoot
+    //   console.log("Computer Pick: " + computerPick);
+
+    //   // Here we create the on click event that gets the user"s pick
+    //   $("button").on("click", function() {
+    //     // console.log($(this).value);
+    //     // console.log(this.value);
+    //     // Here this lockGame line prevents the user from changing the option after the game is done.
+    //     if (lockGame !== true) {
+
+    //       // We get the value associated with the button the user picked from here
+    //       yourPick = $(this).attr("value");
+    //       // console.log("Your Pick: " + yourPick);
+    //       // console.log("My Num: " + $(this).val())
+    //       // We then reveal the computer's pick in the html
+    //       $("#computer-pick").html(computerPick);
+
+    //       // If your pick matched the computer's pick you let them know.
+    //       if (yourPick == computerPick) {
+    //         $("#result").html("Yep! You got it! Refresh the page to play again.");
+
+    //       }
+
+    //       // If the numbers did not match. You also let them know
+    //       else {
+    //         $("#result").html("Nope. Refresh the page to play again.");
+    //         lockGame = true;
+    //       }
+    //     }//sure delete the lockgame if you dare....jk.
+
+    //   });
+    // });
+
+</script>
+
+</body>
+</html>
