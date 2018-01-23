@@ -76,12 +76,48 @@
   </div>
 
   <script type="text/javascript">
+    // Defining variables to call on later
+    var userScore=0
+    var score=0
+    var scoretoMatch=0
+    var wins=0
+    var losses=0
+    // This creates Computer's random score to beat with a # between 19 and 120. Also creates attributes to assign random, numerical values to each button. Calls the reset function and resets score.
+  function resetGame() {
+    scoretoMatch = Math.floor(Math.random() *102) +19;
+    $("#computer-pick").text(scoretoMatch);
+    $("#button-1").attr("data-value", Math.floor(Math.random()*18) + 1);
+    $("#button-2").attr("data-value", Math.floor(Math.random()*18) + 1);
+    $("#button-3").attr("data-value", Math.floor(Math.random()*18) + 1);
+    $("#button-4").attr("data-value", Math.floor(Math.random()*18) + 1);
+    userScore=0;
+     $("#result").text(userScore)
+  }
 
-    // This creates Computer's random score to beat with a # between 19 and 120
-   var scoretoMatch = Math.floor(Math.random() *102) +19;
-  
+    // Creates conditional function to determine wins and losses
+    $(".btn").on("click", function() {
+      console.log($(this).attr("data-value"));
+      score=parseInt($(this).attr("data-value"));
+      userScore+=score 
+      $("#result").text(userScore);
+
+      if (userScore === scoretoMatch) {
+        wins ++;
+        $("#wins").text(wins);
+        resetGame();
+      }
+
+      else if (userScore > scoretoMatch) {
+        losses ++;
+        $("#losses").text(losses);
+        resetGame();
+      }
+
+    })
+   // Calls function to start
+    resetGame();
    // This post the value from above into the screen for users to see
-   $("#computer-pick").text(scoretoMatch);
+   
 
 
 
